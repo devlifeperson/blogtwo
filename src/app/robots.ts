@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: "/private/",
       },
     ],
-    sitemap: `${publicEnv.SITE_URL}/sitemap_index.xml`,
+    sitemap: `${publicEnv.SITE_URL}/sitemap.xml`,
   };
 }
