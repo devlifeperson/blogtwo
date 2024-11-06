@@ -55,6 +55,9 @@ export const metadata: Metadata = {
   other: {
     copyright: "2024, Devlife Solution",
   },
+  verification: {
+    google: "isrsQR9WYR-Qp18tl5ZJuPnCJRc21a5KKX1xi_FsLbM",
+  }
 };
 
 export default function RootLayout({
