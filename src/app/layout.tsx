@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     copyright: "2024, Devlife Solution",
   },
   verification: {
-    google: "isrsQR9WYR-Qp18tl5ZJuPnCJRc21a5KKX1xi_FsLbM",
+    google: publicEnv.GOOGLE_SITE_VERIFICATION,
   }
 };
 

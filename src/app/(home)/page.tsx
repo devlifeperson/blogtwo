@@ -1,15 +1,16 @@
-import { Metadata } from "next";
 import { generateOpenGraph } from "@/utils/seo";
+import { Metadata } from "next";
 
 import "./styles.css";
 
+import { HOME_TOOL_GROUPS, siteConfig } from "@/config/site";
 import { Hero } from "./_components/hero";
 import { Kickstart } from "./_components/kickstart";
 import { ToolCategories, ToolGroup } from "./_components/tools";
 
 export async function generateMetadata() {
-  const title = "Devlife blog";
-  const description = "A collection of articles about software development, programming, and technology and more.";
+  const title = siteConfig.title;
+  const description = siteConfig.description;
 
   return {
     title,
@@ -19,103 +20,6 @@ export async function generateMetadata() {
     twitter: { title, description },
   } satisfies Metadata;
 }
-
-const TOOL_GROUPS = [
-  {
-    title: "code tidy",
-    slug: "code-tidy",
-    tools: [
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-    ],
-  },
-  {
-    title: "Data format",
-    slug: "data-format",
-    tools: [
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-    ],
-  },
-  {
-    title: "Random data",
-    slug: "random-data",
-    tools: [
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-      {
-        title: "JSON Prettify",
-        desc: "A free tool to prettify un-formatted JSON content",
-      },
-    ],
-  },
-];
 
 export default async function HomePage() {
   return (
@@ -147,14 +51,19 @@ export default async function HomePage() {
 
         <div className="container">
           <div className="search-tool__wrapper">
-            <ToolCategories />
+            <ToolCategories
+              items={HOME_TOOL_GROUPS.map((g) => ({
+                slug: g.slug,
+                title: g.title,
+              }))}
+            />
 
             <div className="search-tool__tools-wrapper">
               <p className="search-tool__not-found hidden">
                 No Tools Found for the Search Criteria
               </p>
 
-              {TOOL_GROUPS.map((group, i) => {
+              {HOME_TOOL_GROUPS.map((group, i) => {
                 return (
                   <ToolGroup
                     key={i}

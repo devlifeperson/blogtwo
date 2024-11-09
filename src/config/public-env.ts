@@ -5,7 +5,8 @@ const IS_DEV = process.env.NODE_ENV !== "production";
 const publicEnvSchema = z.object({
   SITE_URL: z.string().url(),
   DEPLOY_URL: z.string().url(),
-  BASE_PATH: z.string()
+  BASE_PATH: z.string(),
+  GOOGLE_SITE_VERIFICATION: z.string(),
 });
 
 const SITE_URL = IS_DEV
@@ -15,5 +16,6 @@ const SITE_URL = IS_DEV
 export const publicEnv = publicEnvSchema.parse({
   SITE_URL: SITE_URL,
   DEPLOY_URL: process.env.NEXT_PUBLIC_DEPLOY_URL,
-  BASE_PATH: process.env.NEXT_PUBLIC_BASE_PATH
+  BASE_PATH: process.env.NEXT_PUBLIC_BASE_PATH,
+  GOOGLE_SITE_VERIFICATION:process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
 });
